@@ -1,0 +1,9 @@
+# Debug/test files (don't push to production)
+debug_moods.php
+test_journal.php
+test_chat.php
+test_save_journal.php
+
+# Local config (if any)
+.env
+*.log

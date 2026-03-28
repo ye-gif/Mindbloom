@@ -1,0 +1,35 @@
+let USERNAME='Friend';
+const MOOD_CONFIG={
+  happy:  {label:'Happy',  emoji:'😊',gradient:'mood-bg-happy',  psychology:'Lavender tones encourage mindfulness and inner balance.',color:'#8b5cf6'},
+  calm:   {label:'Calm',   emoji:'😌',gradient:'mood-bg-calm',   psychology:'Warm rose tones nurture your peace and keep your heart open.',color:'#f43f5e'},
+  sad:    {label:'Sad',    emoji:'😢',gradient:'mood-bg-sad',    psychology:'Golden amber tones lift you up — brighter moments are ahead.',color:'#f59e0b'},
+  anxious:{label:'Anxious',emoji:'😰',gradient:'mood-bg-anxious',psychology:'Soft sage greens ground your restless energy and calm your nervous system.',color:'#22c55e'},
+  angry:  {label:'Angry',  emoji:'😠',gradient:'mood-bg-angry',  psychology:'Cool blue tones bring peace and clarity — they cool the heat.',color:'#3b82f6'},
+  neutral:{label:'Neutral',emoji:'😐',gradient:'mood-bg-neutral',psychology:'Warm amber tones gently energize and encourage you.',color:'#f97316'},
+};
+const SELF_CARE_TIPS={
+  happy:  [{text:'Share your joy with someone you love',type:'tip'},{text:'Write down 3 things you\'re grateful for',type:'tip'},{text:'4-7-8 Breathing: inhale 4s, hold 7s, exhale 8s',type:'breathing',pattern:[4,7,8],label:'Calming Breath'},{text:'Create something: draw, write, or sing',type:'tip'}],
+  calm:   [{text:'Box Breathing: inhale 4s, hold 4s, exhale 4s, hold 4s',type:'breathing',pattern:[4,4,4,4],label:'Box Breath'},{text:'Read a few pages of a good book',type:'tip'},{text:'Enjoy a warm cup of tea mindfully',type:'tip'},{text:'Listen to calming ambient sounds',type:'tip'}],
+  sad:    [{text:'Reach out to a friend or loved one',type:'tip'},{text:'4-7-8 Breathing: inhale 4s, hold 7s, exhale 8s',type:'breathing',pattern:[4,7,8],label:'Calming Breath'},{text:'Take a warm bath or shower',type:'tip'},{text:'Be gentle with yourself',type:'tip'}],
+  anxious:[{text:'4-7-8 Breathing: inhale 4s, hold 7s, exhale 8s',type:'breathing',pattern:[4,7,8],label:'Calming Breath'},{text:'Box Breathing: inhale 4s, hold 4s, exhale 4s, hold 4s',type:'breathing',pattern:[4,4,4,4],label:'Box Breath'},{text:'Write down your worries to externalize them',type:'tip'},{text:'Step outside for fresh air and grounding',type:'tip'}],
+  angry:  [{text:'Deep Exhale: inhale 4s, exhale slowly for 8s',type:'breathing',pattern:[4,0,8],label:'Cooling Breath'},{text:'Try a physical activity to release energy',type:'tip'},{text:'Box Breathing: inhale 4s, hold 4s, exhale 4s, hold 4s',type:'breathing',pattern:[4,4,4,4],label:'Box Breath'},{text:'Count to 10 slowly before reacting',type:'tip'}],
+  neutral:[{text:'Try something new today',type:'tip'},{text:'Box Breathing: inhale 4s, hold 4s, exhale 4s, hold 4s',type:'breathing',pattern:[4,4,4,4],label:'Box Breath'},{text:'Set a small goal for the day',type:'tip'},{text:'Spend 10 minutes on a hobby you enjoy',type:'tip'}],
+};
+const MOOD_QUOTES={
+  sad:    [{text:"Even the darkest night will end and the sun will rise.",author:"Victor Hugo"},{text:"You are stronger than you think. You have survived every hard day so far.",author:"Unknown"},{text:"Tough times never last, but tough people do.",author:"Robert H. Schuller"},{text:"Healing is not linear. Be patient with yourself.",author:"Unknown"}],
+  anxious:[{text:"You don't have to control your thoughts. You just have to stop letting them control you.",author:"Dan Millman"},{text:"Breathe. You are exactly where you need to be.",author:"Unknown"},{text:"One day at a time. One breath at a time. You've got this.",author:"Unknown"}],
+  angry:  [{text:"For every minute you remain angry, you give up sixty seconds of peace of mind.",author:"Ralph Waldo Emerson"},{text:"The greatest remedy for anger is delay.",author:"Thomas Paine"},{text:"Holding onto anger is like drinking poison and expecting the other person to die.",author:"Buddha"}],
+  happy:  [{text:"Happiness is not something ready-made. It comes from your own actions.",author:"Dalai Lama"},{text:"Enjoy the little things, for one day you may look back and realize they were the big things.",author:"Robert Brault"},{text:"Happiness is a direction, not a place.",author:"Sydney J. Harris"}],
+  calm:   [{text:"Within you, there is a stillness and a sanctuary to which you can retreat at any time.",author:"Hermann Hesse"},{text:"Peace comes from within. Do not seek it without.",author:"Buddha"},{text:"The quieter you become, the more you can hear.",author:"Ram Dass"}],
+  neutral:[{text:"Every day is a new beginning. Take a deep breath and start again.",author:"Unknown"},{text:"Small steps every day lead to big changes over time.",author:"Unknown"},{text:"The secret of getting ahead is getting started.",author:"Mark Twain"}],
+};
+function getRandomQuote(mood){const list=MOOD_QUOTES[mood]||MOOD_QUOTES.neutral;return list[Math.floor(Math.random()*list.length)];}
+const THERAPEUTIC_DESCRIPTIONS={sad:'warm golden tones to lift your spirits',anxious:'soft sage greens to calm your nervous system',angry:'cool blue hues to bring peace and clarity',happy:'gentle lavender to encourage mindfulness',calm:'warm rose tones to maintain your positivity',neutral:'energizing amber to motivate and encourage you'};
+const BOT_RESPONSES={
+  greeting:["Hi there! How are you feeling today?","Welcome! I'm here to listen."],
+  sad:     ["I hear you, and it's okay to feel sad.","Sadness is valid. Be gentle with yourself."],
+  anxious: ["Try naming 5 things you can see right now.","Take a deep breath with me. In for 4, hold 7, out for 8."],
+  angry:   ["It's okay to feel angry. Let's find a healthy way to channel that energy.","Try taking a few deep breaths."],
+  happy:   ["That's wonderful! What's bringing you joy today?","Savoring happy moments helps them last longer."],
+  default: ["Thank you for sharing. I'm here to support you.","Remember, every step forward counts, no matter how small."],
+};

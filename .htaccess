@@ -1,0 +1,16 @@
+# Protect sensitive files
+<FilesMatch "\.(sql|env|log|sh)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block direct access to debug/test files
+<FilesMatch "^(debug_|test_).*\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Enable HTTPS redirect (uncomment when on live server)
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
