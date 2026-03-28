@@ -1,2 +1,2 @@
 [php]
-extensions = ["pgsql", "pdo_pgsql"]
+extensions = ["pgsql"]
